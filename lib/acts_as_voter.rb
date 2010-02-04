@@ -69,6 +69,10 @@ module PeteOnRails
           vote.save
         end
 
+        def delete_votes(voteable)
+          Vote.destroy_all(:conditions => ["voter_id = ? AND voter_type = ?",self.id,self.class.name])
+        end
+
       end
     end
   end
